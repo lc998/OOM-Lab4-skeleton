@@ -10,8 +10,8 @@ public class TimeZoneTranslator {
 		int inputHour = inputDate.getHour();
 		int gmtHour = inputHour + fromOffset;
 		int targetHour;
-		if(toOffset <= 0)
-			targetHour = gmtHour + toOffset - fromOffset;
+		if(toOffset < 0) //behöver -3
+			targetHour = gmtHour + toOffset;//- fromOffset
 		else
 			targetHour = gmtHour + toOffset;
 		
