@@ -29,47 +29,91 @@ public class TimeZoneTranslatorTest {
 				HC218);
 */
 		
-		//varje månad är 31 dagar i detta program.
 		
-		int year = 2018, month = 2, day = 20, hour = 5, minute = 10, second = 20;
+		/*test to string*/
+//		int year = 2018, month = 2, day = 31, hour = 10, minute = 10, second = 59;
+//		DateTime dt = new DateTime(year, month, day, hour, minute, second);
+//
+//		//		%04d-%02d-%02d %02d:%02d:%02d
+//		String date = "2018-02-31 10:10:59";
+//
+//		assertEquals(date, dt.toString());
+//		
+		
+		//varje månad är 31 dagar i detta program.
+/*		
+		int year = 2018, month = 2, day = 31, hour = 10, minute = 10, second = 59;
 		DateTime dt = new DateTime(year, month, day, hour, minute, second);
 
 		//		%04d-%02d-%02d %02d:%02d:%02d
-		String date = "2018-02-31 05:10:59";
+		String date = "2018-02-31 10:10:59";
 
 		assertEquals(date, dt.toString());
-
+*/
 		//		dt.shi
 
 		/* Start test */
-
+/*		OK vanliga byten av tidszon
 		dt = TimeZoneTranslator.shiftTimeZone(dt, 0, 1);
+		//+1h
+		assertEquals("2018-02-31 11:10:59", dt.toString());
+		
+		//+1h
+		dt = TimeZoneTranslator.shiftTimeZone(dt, 1, 2);
+		//+1h
+		assertEquals("2018-02-31 12:10:59", dt.toString());
+		
+		dt = TimeZoneTranslator.shiftTimeZone(dt, 2, 3);
+		//+1h
+		assertEquals("2018-02-31 13:10:59", dt.toString());
+		
+		dt = TimeZoneTranslator.shiftTimeZone(dt, 3, 4);
+		//+1h
+		assertEquals("2018-02-31 14:10:59", dt.toString());
+		
+		dt = TimeZoneTranslator.shiftTimeZone(dt, 4, 3);
+		//+1h
+		assertEquals("2018-02-31 13:10:59", dt.toString());
+*/
+		
+		/*Test 2 next day change timezone*/
+		int year = 2016, month = 1, day = 1, hour = 6, minute = 0, second = 0;
+		DateTime dt = new DateTime(year, month, day, hour, minute, second);
+		DateTime dt2 = new DateTime(2015, 12, 31, 21, 0, 0);
 
+		
+		//		%04d-%02d-%02d %02d:%02d:%02d
+		String date = "2016-01-01 06:00:00";
+
+		//assertEquals(date, dt.toString());
+		
+		dt = TimeZoneTranslator.shiftTimeZone(dt, 1, -8);
+		assertEquals("2015-12-31 21:00:00", dt.toString());
+		
+//		assertEquals(dt2, dt);
+		
 		//fix + år, månad dag, timme, min, sek
-		
-		
-		
 	}
 
 	@Test public void testShiftEventTimeZone() {
-		String startDate = "2018-02-05 05:10:20";
-		String endDate = "2018-02-20 05:10:20";
-
-		int year = 2018, month = 2, day = 5, hour = 5, minute = 10, second = 20;
-		DateTime dt = new DateTime(year, month, day, hour, minute, second);
-
-		int endyear = 2018, endmonth = 2, endday = 20, endhour = 5, endminute = 10, endsecond = 20;
-		DateTime dtSlut = new DateTime(endyear, endmonth, endday, endhour, endminute, endsecond);
-
-		Event ev = new Event(null, dt, dtSlut, null, null);
-
-		assertEquals(startDate, ev.getStartDate().toString());
-		assertEquals(endDate, ev.getEndDate().toString());
-
-		String newSDate = "2018-02-10 06:12:05";
-		DateTime dtStartNew = new DateTime(newSDate);
-		ev.setEndDate(dtStartNew);
-		assertEquals(newSDate, ev.getStartDate().toString());
+//		String startDate = "2018-02-05 05:10:20";
+//		String endDate = "2018-02-20 05:10:20";
+//
+//		int year = 2018, month = 2, day = 5, hour = 5, minute = 10, second = 20;
+//		DateTime dt = new DateTime(year, month, day, hour, minute, second);
+//
+//		int endyear = 2018, endmonth = 2, endday = 20, endhour = 5, endminute = 10, endsecond = 20;
+//		DateTime dtSlut = new DateTime(endyear, endmonth, endday, endhour, endminute, endsecond);
+//
+//		Event ev = new Event(null, dt, dtSlut, null, null);
+//
+//		assertEquals(startDate, ev.getStartDate().toString());
+//		assertEquals(endDate, ev.getEndDate().toString());
+//
+//		String newSDate = "2018-02-10 06:12:05";
+//		DateTime dtStartNew = new DateTime(newSDate);
+//		ev.setEndDate(dtStartNew);
+//		assertEquals(newSDate, ev.getStartDate().toString());
 
 		//		TimeZoneTranslator
 
