@@ -32,42 +32,42 @@ public class TimeZoneTranslatorTest {
 		assertEquals("2018-05-15 11:00:10", dt.toString());
 
 		/* Start test */
-		//		//vanliga byten av tidszon framåt utan byte
-		//		dt = TimeZoneTranslator.shiftTimeZone(dt, 0, 1);
-		//		assertEquals("2018-02-31 11:10:59", dt.toString());
+		//vanliga byten av tidszon framåt utan byte
+		dt = TimeZoneTranslator.shiftTimeZone(dt, 0, 1);
+		assertEquals("2018-05-15 12:00:10", dt.toString());
 
 		/* Test 2 next day change timezone */
 		DateTime dtND = new DateTime(2018, 2, 30, 23, 0, 0);
 		dtND = TimeZoneTranslator.shiftTimeZone(dtND, 0, 1);
 
-		assertEquals("2018-02-31 24:00:00", dtND.toString());
+		assertEquals("2018-02-31 00:00:00", dtND.toString());
 
-		/* Test 2 next month change timezone */
+		/* Test 3 next month change timezone */
 		DateTime dtNM = new DateTime(2018, 2, 31, 23, 0, 0);
 		dtNM = TimeZoneTranslator.shiftTimeZone(dtNM, 0, 1);
 
-		assertEquals("2018-03-01 24:00:00", dtNM.toString());
+		assertEquals("2018-03-01 00:00:00", dtNM.toString());
 
-		/* Test 2 next year change timezone */
+		/* Test 4 next year change timezone */
 		DateTime dtNY = new DateTime(2017, 12, 31, 23, 0, 0);
 		dtNY = TimeZoneTranslator.shiftTimeZone(dtNY, 0, 1);
 
-		assertEquals("2018-01-01 24:00:00", dtNY.toString());
+		assertEquals("2018-01-01 00:00:00", dtNY.toString());
 
-		/* Test 2 day before change timezone */
-		DateTime dtDB = new DateTime(2018, 2, 30, 24, 0, 0);
-		dtDB = TimeZoneTranslator.shiftTimeZone(dtDB, 1, 0);
+		/* Test 5 day before change timezone */
+		DateTime dtDB = new DateTime(2018, 2, 30, 0, 0, 0);
+		dtDB = TimeZoneTranslator.shiftTimeZone(dtDB, 0, -1);
 
 		assertEquals("2018-02-29 23:00:00", dtDB.toString());
 
-		/* Test 2 moth before change timezone */
-		DateTime dtMB = new DateTime(2018, 3, 1, 24, 0, 0);
+		/* Test 6 moth before change timezone */
+		DateTime dtMB = new DateTime(2018, 3, 1, 0, 0, 0);
 		dtMB = TimeZoneTranslator.shiftTimeZone(dtMB, 0, -1);
 
 		assertEquals("2018-02-31 23:00:00", dtMB.toString());
 
-		/* Test 2 year before change timezone */
-		DateTime dtYB = new DateTime(2018, 1, 1, 24, 0, 0);
+		/* Test 7 year before change timezone */
+		DateTime dtYB = new DateTime(2018, 1, 1, 0, 0, 0);
 		dtYB = TimeZoneTranslator.shiftTimeZone(dtYB, 0, -1);
 
 		assertEquals("2017-12-31 23:00:00", dtYB.toString());
