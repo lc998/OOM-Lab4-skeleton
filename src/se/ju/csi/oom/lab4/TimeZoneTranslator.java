@@ -10,14 +10,22 @@ public class TimeZoneTranslator {
 		int inputHour = inputDate.getHour();
 		int gmtHour = inputHour + fromOffset;
 		int targetHour = gmtHour + toOffset;
-
-		
-		DateTime targetDateTime = new DateTime(inputDate.getYear(),
-				inputDate.getMonth(),
-				inputDate.getDay(),
-				targetHour,
-				inputDate.getMinute(),
-				inputDate.getSecond());
+		DateTime targetDateTime;
+		if(targetHour < 0)
+			targetDateTime = new DateTime(inputDate.getYear(),
+					inputDate.getMonth(),
+					inputDate.getDay(),
+					targetHour,
+					inputDate.getMinute(),
+					inputDate.getSecond());
+		else {
+			targetDateTime = new DateTime(inputDate.getYear(),
+					inputDate.getMonth(),
+					inputDate.getDay(),
+					targetHour,
+					inputDate.getMinute(),
+					inputDate.getSecond());
+		}
 		
 		return targetDateTime;
 	}
