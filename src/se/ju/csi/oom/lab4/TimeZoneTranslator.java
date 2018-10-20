@@ -11,6 +11,8 @@ public class TimeZoneTranslator {
 		int gmtHour = inputHour + fromOffset;
 		int targetHour = gmtHour + toOffset;
 
+		
+		
 		DateTime targetDateTime = new DateTime(inputDate.getYear(),
 				inputDate.getMonth(),
 				inputDate.getDay(),
