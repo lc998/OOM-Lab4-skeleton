@@ -98,7 +98,7 @@ public class TimeZoneTranslatorTest {
 		String newSDate = "2018-02-10 06:12:05";
 		DateTime dtStartNew = new DateTime(newSDate);
 		ev.setEndDate(dtStartNew);
-		assertEquals(newSDate, ev.getStartDate().toString());
+		assertEquals(newSDate, ev.getEndDate().toString());
 
 		//		TimeZoneTranslator
 
