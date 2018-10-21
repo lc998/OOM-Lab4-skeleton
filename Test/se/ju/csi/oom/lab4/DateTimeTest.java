@@ -22,6 +22,6 @@ public class DateTimeTest {
 
 		assertEquals(dtString2, dtString);
 		
-	}}
+	}
 
 }
