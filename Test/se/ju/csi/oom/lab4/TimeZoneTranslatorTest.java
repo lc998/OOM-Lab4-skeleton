@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package se.ju.csi.oom.lab4;
 
 import static org.junit.Assert.assertEquals;
