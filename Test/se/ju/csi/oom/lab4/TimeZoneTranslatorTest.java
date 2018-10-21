@@ -74,11 +74,9 @@ public class TimeZoneTranslatorTest {
 
 		/* Back in time extreme: change on year date and time */
 		DateTime dt3 = new DateTime(2016, 1, 1, 6, 0, 0);
-		DateTime dt4 = new DateTime(2015, 12, 31, 21, 0, 0);
 
 		dt3 = TimeZoneTranslator.shiftTimeZone(dt3, 1, -8);
 		assertEquals("2015-12-31 21:00:00", dt3.toString());
-		assertEquals(dt3, dt4);
 
 	}
 

@@ -8,12 +8,9 @@ public class TimeZoneTranslator {
 	static DateTime shiftTimeZone(DateTime inputDate, int fromOffset, int toOffset) {
 
 		int inputHour = inputDate.getHour();
-		int gmtHour = inputHour + fromOffset;
-		int targetHour;
-		if(toOffset < 0) //behöver -3
-			targetHour = gmtHour + toOffset;//- fromOffset
-		else
-			targetHour = gmtHour + toOffset;
+		int gmtHour = inputHour - fromOffset;
+		int targetHour = 0;
+		targetHour = gmtHour + toOffset;
 		
 		int year, month, day, minute, second;
 		year = inputDate.getYear();
@@ -23,12 +20,12 @@ public class TimeZoneTranslator {
 		second = inputDate.getSecond();
 
 		//backwards
-		if (targetHour <= 0) {
+		if (targetHour < 0) {
 			if (day <= 1) {
 				if (month <= 1) {
 					year--;
 					month = 12;
-				}else month--;
+				} else month--;
 				day = 30 + day;
 			} else {
 				day--;
@@ -44,8 +41,7 @@ public class TimeZoneTranslator {
 				day = 1;
 			} else day++;
 			targetHour = 24 - targetHour;
-			
-			
+
 		}
 
 		DateTime targetDateTime;
